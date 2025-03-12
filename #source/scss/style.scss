@@ -1,260 +1,258 @@
 @import '_base.scss';
 
-
 .content-wrapper {
-	width: 100%;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	gap: 5rem;
-	margin: 2.5rem 0;
-	max-width: 144rem;
-	margin: 5rem auto;
-
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2.5rem 0;
+  max-width: 144rem;
+  margin: 5rem auto;
 }
 
 .zoom-wrapper {
-	display: flex;
-	max-width: 50rem;
-	width: 100%;
-	margin-right: auto;
-	overflow: auto;
-	gap: 2rem;
-	overflow: auto;
+  display: flex;
+  max-width: 50rem;
+  width: 100%;
+  margin-right: auto;
+  overflow: auto;
+  gap: 2rem;
+  overflow: auto;
+  margin: 1.2rem 0;
 }
 
 .zoom-container {
-	position: relative;
-	margin: 0 auto;
-	width: 50rem;
-	min-width: 50rem;
-	height: 40rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-grow: 1;
+  position: relative;
+  margin: 0 auto;
+  width: 50rem;
+  min-width: 50rem;
+  height: 40rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
 
-	&.mouse-over {
-		.zoom-lens {
-			animation: zoomAnimation .3s ease-in-out forwards;
-		}
-	}
+  &.mouse-over {
+    .zoom-lens {
+      animation: zoomAnimation 0.3s ease-in-out forwards;
+    }
+  }
 
-	.zoom-image {
-		max-width: 100%;
-		max-height: 100%;
-	}
+  .zoom-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
 
-	.zoom-lens {
-		position: absolute;
-		top: 0;
-		left: 0;
-		background: rgba(darkcyan, .3);
-		border: 1px solid rgba(darkcyan, .8);
-		visibility: hidden;
-		opacity: 0;
-		pointer-events: none;
-	}
+  .zoom-lens {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(darkcyan, 0.3);
+    border: 1px solid rgba(darkcyan, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .zoomed-container {
-	width: 50rem;
-	position: absolute;
-	top: 0;
-	right: 0;
-	box-shadow: 0px 0px 0px 2px darkcyan;
-	background: rgba(#ffffff, .3);
-	visibility: hidden;
-	opacity: 0;
-	pointer-events: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  width: 50rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: 0px 0px 0px 2px darkcyan;
+  background: rgba(#ffffff, 0.3);
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	&.mouse-over {
-		animation: zoomAnimation .3s ease-in-out forwards;
-	}
+  &.mouse-over {
+    animation: zoomAnimation 0.3s ease-in-out forwards;
+  }
 
-	.zoomed-img {
-		display: none;
-		width: 100%;
-		height: 100%;
-	}
+  .zoomed-img {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .fullscreen-container {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	height: 100dvh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 10;
-	display: flex;
-	opacity: 0;
-	visibility: hidden;
-	transform: scale(0);
-	transition: all .3s ease;
-	z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  z-index: -1;
 
-	&.visible {
-		opacity: 1;
-		visibility: visible;
-		transform: scale(1);
-		z-index: 1;
-	}
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 1;
+  }
 
-	.fullscreen-bg {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(#1F2225, .7);
-		transition: all .3s ease-in-out;
-	}
+  .fullscreen-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(#1f2225, 0.7);
+    transition: all 0.3s ease-in-out;
+  }
 
-	.fullScreen-slider {
-		max-width: 56rem;
-		width: 100%;
-		background: #ffffff;
-		border-radius: .3rem;
-		z-index: 1;
-		overflow: hidden;
-	}
+  .fullScreen-slider {
+    max-width: 56rem;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 0.3rem;
+    z-index: 1;
+    overflow: hidden;
+  }
 
-	.slider-wrapper {
-		width: 100%;
-		display: flex;
-		align-items: stretch;
-		transition: all .3s ease-in-out;
-	}
+  .slider-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    transition: all 0.3s ease-in-out;
+  }
 
-	.slider-slide {
-		width: 100%;
-		aspect-ratio: 1.2/1;
-		flex-shrink: 0;
-		margin-right: 5rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
+  .slider-slide {
+    width: 100%;
+    aspect-ratio: 1.2/1;
+    flex-shrink: 0;
+    margin-right: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 
-		img {
-			max-width: 100%;
-			max-height: 100%;
-		}
-	}
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
 
-	.slider-arrows {
-		.arrow-wrapper {
-			position: absolute;
-			top: 50%;
-			cursor: pointer;
-			border-radius: .5rem;
-			width: 8rem;
-			height: 8rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			transform: translateY(-50%);
+  .slider-arrows {
+    .arrow-wrapper {
+      position: absolute;
+      top: 50%;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      width: 8rem;
+      height: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-50%);
 
-			&:hover {
-				>div {
-					background: rgba(#000000, .7);
-					filter: drop-shadow(0px 0px 2rem rgba(#000000, .7));
-				}
-			}
+      &:hover {
+        > div {
+          background: rgba(#000000, 0.7);
+          filter: drop-shadow(0px 0px 2rem rgba(#000000, 0.7));
+        }
+      }
 
-			>div {
-				width: 50%;
-				height: 50%;
-				border-radius: .5rem;
-				background: rgba(#000000, .5);
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				pointer-events: none;
-				transition: all .3s ease-in-out;
+      > div {
+        width: 50%;
+        height: 50%;
+        border-radius: 0.5rem;
+        background: rgba(#000000, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        transition: all 0.3s ease-in-out;
 
-				&:hover {
-					svg {
-						path {
-							fill: rgb(255, 255, 255);
-						}
-					}
-				}
-			}
+        &:hover {
+          svg {
+            path {
+              fill: rgb(255, 255, 255);
+            }
+          }
+        }
+      }
 
-			svg {
-				width: 75%;
-				height: 75%;
+      svg {
+        width: 75%;
+        height: 75%;
 
-				path {
-					transition: all .3s ease-in-out;
-				}
-			}
-		}
-	}
+        path {
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+  }
 
-	.arrow-right {
-		right: 2.5rem;
-	}
+  .arrow-right {
+    right: 2.5rem;
+  }
 
-	.arrow-left {
-		left: 2.5rem;
-	}
+  .arrow-left {
+    left: 2.5rem;
+  }
 
-	.close-btn {
-		position: absolute;
-		top: 2rem;
-		right: 2rem;
-		width: 3.6rem;
-		height: 3.6rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		border-radius: .8rem;
-		transition: all .3s ease-in-out;
-		background: rgba(#000, .2);
-	}
+  .close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    transition: all 0.3s ease-in-out;
+    background: rgba(#000, 0.2);
+  }
 }
 
-@media screen and (max-width:720px) {
-	.fullscreen-container {
-		.fullScreen-slider {
-			width: 95%;
-		}
+@media screen and (max-width: 720px) {
+  .fullscreen-container {
+    .fullScreen-slider {
+      width: 95%;
+    }
 
-		.slider-arrows {
-			.arrow-wrapper {
-				width: 6rem;
-				height: 6rem;
-			}
-		}
+    .slider-arrows {
+      .arrow-wrapper {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
 
-		.arrow-right {
-			right: 1.5rem;
-		}
+    .arrow-right {
+      right: 1.5rem;
+    }
 
-		.arrow-left {
-			left: 1.5rem;
-		}
-	}
+    .arrow-left {
+      left: 1.5rem;
+    }
+  }
 }
 
 @keyframes zoomAnimation {
-	0% {
-		visibility: hidden;
-		opacity: 0;
-	}
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
 
-	100% {
-		visibility: visible;
-		opacity: 1;
-	}
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
 }
